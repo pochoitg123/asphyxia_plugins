@@ -9,7 +9,7 @@
   const filters = [ "Off", "Dark", "Darker", "Darkest" ];
   const judgmentPrioritys = [ "Judgment priority", "Arrow priority" ];
 
-if (profile.usergamedata)
+if (profile && profile.usergamedata)
   -
     const common = profile.usergamedata.COMMON.strdata.split(",");
     const option = profile.usergamedata.OPTION.strdata.split(",");
@@ -143,5 +143,10 @@ if (profile.usergamedata)
                       option(value=i) #{v}
             p.control
               a.button.is-primary#change-display-timing Submit
+else
+  div
+    .card
+      .card-content
+        p.has-text-danger No profile data available for this player.
 
 script(src="static/js/profile_settings.js")
